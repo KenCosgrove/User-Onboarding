@@ -1,6 +1,3 @@
-
-
-
 describe('name input', ()=> {
     it('can type a name', ()=>{
         cy.visit("http://localhost:3000/")
@@ -9,7 +6,6 @@ describe('name input', ()=> {
         .should('have.value', 'alexander')
     })
 })
-
 
 describe('email input', ()=> {
     it('can type a valid email', ()=>{
@@ -25,6 +21,20 @@ describe('password input', ()=> {
         cy.visit("http://localhost:3000/")
         cy.get('input[name="password"]')
         .type('quickbrownfox')
-        .should('have.value', 'quickbrownfox')
+        .should('have.value', 'quickbrownfox') 
+    })
+})
+
+describe('TOS input', ()=>{
+    it('can agree to TOS', ()=>{
+        cy.visit("http://localhost:3000/")
+        cy.get('input[type="checkbox"]').click()
+    })
+})
+
+describe('submit input', ()=>{
+    it('can submit form', ()=>{
+        cy.visit("http://localhost:3000/")
+        cy.get('button').click()
     })
 })
