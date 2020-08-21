@@ -1,11 +1,12 @@
 import React from 'react'
 
 const Form = (props) => {
-    const {values, submit, inputChange, checkboxChange, errors, disabled} = props
+    const {values, submit, update, inputChange, checkboxChange, errors, disabled} = props
    
     const onInputChange = event =>{
         const {name, value} =event.target
         inputChange(name, value)
+        update(name, value)
     }
     
     const onCheckboxChange = event => {
@@ -63,7 +64,7 @@ const Form = (props) => {
                 type="checkbox"/>
             </label>
              <br/>
-            <button >Submit</button>
+            <button disabled={disabled} >Submit</button>
           
         </form>
          
